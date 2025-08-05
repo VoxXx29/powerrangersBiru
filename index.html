@@ -650,7 +650,7 @@
         </div>
     </div>
 
-    <!-- Page 3: Location Selection -->
+    <!-- Page 3: Location Selection (FIXED) -->
     <div id="page3" class="page">
         <div class="container">
             <div class="progress">
@@ -665,47 +665,50 @@
                 <p class="subtitle">Where shall our story unfold?</p>
                 
                 <div class="location-grid">
+                    <!-- Opsi 1 -->
                     <div class="location-option" onclick="selectLocation(this, 'Malalayang Beach Walk')">
                         <img src="MBW.jpeg" alt="Pemandangan di Malalayang Beach Walk" class="location-image">
                         <h4>🌸 Malalayang Beach Walk</h4>
                         <p>Menikmati sunset indah di tepi pantai, ditemani angin sepoi-sepoi dan suara ombak.</p>
                     </div>
                     
-                    <div class="location-option" onclick="selectLocation(this, 'Malalayang Beach Walk')">
-                        <img src="kawasan.webp" alt="Pemandangan di Malalayang Beach Walk" class="location-image">
-                   
- <h4>Kawasan</h4>
- <p>Tempat ini dipenuhi dengan 10 ribu macam jenis manusia dan memiliki banyak spot spot keren dan bagus</p>
-
-</div>
+                    <!-- Opsi 2 -->
+                    <div class="location-option" onclick="selectLocation(this, 'Kawasan')">
+                        <img src="kawasan.webp" alt="Pemandangan di Kawasan Megamas" class="location-image">
+                        <h4>Kawasan</h4>
+                        <p>Tempat ini dipenuhi dengan 10 ribu macam jenis manusia dan memiliki banyak spot-spot keren dan bagus.</p>
+                    </div>
                     
-<div class="location-option" onclick="selectLocation(this, 'Malalayang Beach Walk')">
-    <img src="pantai.webp" alt="Pemandangan di Malalayang Beach Walk" class="location-image">
-    <h4>Mie Gacoan Sambil Makan di samping laut</h4>
-                        <p>Bisajadi alternatif yang sangat direkomendasikan untuk menikmati seporsi mie gacoan dengan menikmati indahnya laut</p>
-             
-</div>
+                    <!-- Opsi 3 -->
+                    <div class="location-option" onclick="selectLocation(this, 'Mie Gacoan di samping laut')">
+                        <img src="pantai.webp" alt="Makan mie di samping laut" class="location-image">
+                        <h4>Mie Gacoan Sambil Makan di samping laut</h4>
+                        <p>Alternatif yang sangat direkomendasikan untuk menikmati seporsi mie gacoan dengan indahnya laut.</p>
+                    </div>
                     
-<div class="location-option" onclick="selectLocation(this, 'Malalayang Beach Walk')">
-    <img src="lokon.jpg" alt="Pemandangan di Malalayang Beach Walk" class="location-image">
+                    <!-- Opsi 4 -->
+                    <div class="location-option" onclick="selectLocation(this, 'Gunung')">
+                        <img src="lokon.jpg" alt="Pemandangan Gunung" class="location-image">
+                        <h4>Gunung</h4>
+                        <p>Jikalau cici memilih ini mungkin perlu diskusi lebih lanjut.</p>
+                    </div>
 
-    <h4>Gunung</h4>
-    <p>Jikalau cici memilih ini mungkin perlu diskusi lebih lanjut</p>
-</div>
-<div class="location-option" onclick="selectLocation(this, 'Malalayang Beach Walk')">
-    <img src="kopioto.webp" alt="Pemandangan di Malalayang Beach Walk" class="location-image">
-    <h4>Kopi Oto Bahu</h4>
-    <p>Baru 1 kali sih ke sih mar recomended karena tempatnya chill</p>
+                    <!-- Opsi 5 -->
+                    <div class="location-option" onclick="selectLocation(this, 'Kopi Oto Bahu')">
+                        <img src="kopioto.webp" alt="Suasana di Kopi Oto Bahu" class="location-image">
+                        <h4>Kopi Oto Bahu</h4>
+                        <p>Baru 1 kali sih ke sini mar recommended karena tempatnya chill.</p>
+                    </div>
 
-
-</div>
-<div class="location-option" onclick="selectLocation(this, 'Malalayang Beach Walk')">
-    <img src="bioskop.jpg" alt="Pemandangan di Malalayang Beach Walk" class="location-image">
-    <h4>Movie</h4>
-    <p>Kebetulan Bulan ini banyak film bagus</p>
-</div>
+                    <!-- Opsi 6 -->
+                    <div class="location-option" onclick="selectLocation(this, 'Movie')">
+                        <img src="bioskop.jpg" alt="Suasana di dalam bioskop" class="location-image">
+                        <h4>Movie</h4>
+                        <p>Kebetulan bulan ini banyak film bagus.</p>
+                    </div>
+                </div>
                 
-                <button class="btn btn-primary" onclick="nextPage()" id="locationNextBtn" style="display: none;">
+                <button class="btn btn-primary" onclick="showConfirmation()" id="locationNextBtn" style="display: none;">
                     Confirm Our Date 💖
                 </button>
             </div>
@@ -931,5 +934,4 @@
         document.head.appendChild(floatStyle);
     </script>
 </body>
-
 </html>
