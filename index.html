@@ -809,7 +809,7 @@
         };
         
         // ===================================================================
-        // ===== MODIFIED FUNCTION TO SEND DATA TO BACKEND =====
+        // ===== FUNGSI YANG DIPERBAIKI SECARA KESELURUHAN =====
         // ===================================================================
         function celebrateDate() {
             // Data yang akan dikirim ke server
@@ -817,26 +817,40 @@
                 selectedDate: selectedDate,
                 selectedLocation: selectedLocation
             };
-
-            // Kirim data ke backend menggunakan fetch API
-            // Pastikan URL ini cocok dengan server backend Anda (localhost untuk lokal, atau URL ngrok/Render untuk global)
-            fetch('https://333285a5b5a3.ngrok-free.app/save-date', {
+    
+            // ================== PERBAIKAN PENTING DI SINI ==================
+            // 1. Ganti nilai di bawah ini dengan URL https:// terbaru dari terminal ngrok Anda.
+            // 2. JANGAN HAPUS "/save-date" di bagian akhir.
+            const ngrokUrl = 'https://333285a5b5a3.ngrok-free.app/save-date'; 
+            // Contoh Benar: const ngrokUrl = 'https://c2a9-110-137-197-15.ngrok-free.app/save-date';
+            // ===============================================================
+            
+            console.log(`Mencoba mengirim data ke: ${ngrokUrl}`); // Untuk debugging
+    
+            fetch(ngrokUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(dataToSend),
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    // Ini akan menangkap error dari server seperti 404 Not Found atau 500 Internal Server Error
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
                 console.log('Sukses:', data);
-                alert(data.message); // Tampilkan pesan sukses dari server
+                alert(data.message);
             })
             .catch((error) => {
-                console.error('Error:', error);
-                alert('Oops, terjadi kesalahan saat menyimpan pilihan Anda. Coba lagi ya.');
+                // Ini akan menangkap error jaringan (misal: ngrok tidak jalan) ATAU error dari throw di atas
+                console.error('Fetch Error:', error);
+                alert('Oops! Terjadi kesalahan saat menyimpan. Pastikan server dan ngrok berjalan, dan URL sudah benar.');
             });
-
+    
             // Animasi perayaan akan tetap berjalan
             for (let i = 0; i < 8; i++) {
                 setTimeout(() => {
@@ -935,4 +949,3 @@
     </script>
 </body>
 </html>
-
